@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Proxy server</title>
+        <link type="text/css" rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <div class="sidebar">
+                <h2>Menu</h2>
+                <button class="sidebar-toggle"><<</button>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logs</a></li>
+                    <li><a href="#">Users</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Proxy server</h1>
+
+            <div class="stats">
+                <div class="stat">
+                    <h2>requests</h2>
+                    <p id="requests"></p>
+                </div>
+                <div class="stat">
+                    <h2>blocked URLs</h2>
+                    <p id="blocked"></p>
+                </div>
+            </div>
+
+            <div class="chart">
+                <script src="Chart.min.js"></script>
+                <canvas id="chart"></canvas>
+                <script>
+                    var ctx = document.getElementById('chart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['2024-07-19', '2024-07-18', '2024-07-17'],
+                            datasets: [
+                                {
+                                    label: 'Requests',
+                                    data: [100, 80, 60],
+                                    fill: false,
+                                    borderColor: 'rgb(0, 158, 255)',
+                                    pointRadius: 5,
+                                    pointBorderColor: 'rgb(0, 158, 255)',
+                                    pointBackgroundColor: 'rgb(0, 158, 255)',
+                                    pointBorderWidth: 2,
+                                },
+                                {
+                                    label: 'Blocked URLs',
+                                    data: [20, 15, 10],
+                                    fill: false,
+                                    borderColor: 'rgb(255, 0, 0)',
+                                    pointRadius: 5,
+                                    pointBorderColor: 'rgb(255, 0, 0)',
+                                    pointBackgroundColor: 'rgb(255, 0, 0)',
+                                    pointBorderWidth: 2,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: 'Time graph',
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                    },
+                                }],
+                            },
+                        },
+                    });
+                </script>
+            </div>
+        </div>
+
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="sidebar.js"></script>
+        <script src="stats.js"></script>
+    </body>
+</html>
