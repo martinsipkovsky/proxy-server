@@ -1,5 +1,6 @@
 from flask import Flask
 from config_read import read_db
+from random import choice
 
 HOST = "127.0.0.1"
 PORT = 5000
@@ -42,4 +43,17 @@ def api_blocked():
 @app.route('/stats.js')
 def statsjs():
     return open_webfile('/stats.js')
+
+@app.route('/chart.js')
+def chart2js():
+    return open_webfile('/chart.js')
+
+@app.route('/api_chart_requests')
+def api_chart_requests():
+    return str(choice(range(0, 500)))
+
+@app.route('/api_chart_blocked')
+def api_chart_blocked():
+    return str(choice(range(0, 500)))
+
 
