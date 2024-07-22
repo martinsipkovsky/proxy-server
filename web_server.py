@@ -1,15 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template
 from config_read import read_db
 from random import choice
 
 HOST = "127.0.0.1"
 PORT = 5000
 
-app = Flask(__name__, static_url_path="/php")
+app = Flask(__name__, template_folder='/static')
 
 def open_webfile(filename):
     # This function will return web file from php folder
-    with open("./php/" + filename, "r") as filehandle:
+    with open("./static/" + filename, "r") as filehandle:
         return filehandle.read()
 
 @app.route('/')
