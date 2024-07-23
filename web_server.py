@@ -57,3 +57,11 @@ def api_chart_blocked():
     return str(choice(range(0, 500)))
 
 
+@app.route('/get_ip')
+def get_ip():
+    return "255.255.255.0"
+
+
+@app.route('/ip_checker.js')
+def ip_checker():
+    return open_webfile('ip_checker.js')

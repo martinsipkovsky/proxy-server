@@ -11,8 +11,8 @@ logger = Logger(debug=True)
 
 
 # create TOR object
-tor = Tor(logger=logger)
-tor.start_tor()
+#tor = Tor(logger=logger)
+#tor.start_tor()
 
 
 if __name__ == "__main__":
