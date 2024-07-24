@@ -62,7 +62,7 @@
                 top: 0;
                 left: 0;
                 width: 80pt;
-                height: 160vh;
+                height: 250vh;
                 background-color: #3b3b3b;
                 padding: 20px;
                 transition: transform 0.3s ease-in-out;
@@ -121,15 +121,17 @@
             }
 
             .switch-bar {
-                /*display: flex;*/
+                display: flex;
             }
 
             /* The switch - the box around the slider */
             .switch {
-                position: relative;
+                position: absolute;
                 display: inline-block;
                 width: 60px;
                 height: 34px;
+                right: 10vh;
+                margin-top: 10px;
             }
 
             /* Hide default HTML checkbox */
@@ -165,7 +167,7 @@
             }
 
             input:checked+.slider {
-                background-color: #2196F3;
+                background-color: #ba2bf3;
             }
 
             input:focus+.slider {
@@ -191,7 +193,7 @@
                 background-color: #303030;
                 position: absolute;
                 left: 0;
-                bottom: -70vh;
+                bottom: -160vh;
                 height: 10vh;
                 width: 100%;
             }
@@ -235,6 +237,16 @@
                 color: black;
                 font-size: 200%;
             }
+
+            .status {
+                position: absolute;
+                right: 3vh;
+                width: 30px;
+                height: 30px;
+                border-radius: 2vh;
+                background-color: #ff0000;
+                margin-top: 11px;
+            }
         </style>
     </head>
     <body>
@@ -272,7 +284,7 @@
                 </div>
                 <div class="stat rounded">
                     <h2>Kill switch</h2>
-                    <button type="submit" class="kill-switch">O</button>
+                    <button type="submit" class="kill-switch"></button>
                 </div>
             </div>
 
@@ -284,6 +296,7 @@
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
+                        <label class="status" id="proxy-status"></label>
                     </div>
                     <div class="switch-bar">
                         <p>Ghost</p>
@@ -291,6 +304,15 @@
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
+                        <label class="status" id="ghost-status"></label>
+                    </div>
+                    <div class="switch-bar">
+                        <p>VPN</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <label class="status" id="vpn-status"></label>
                     </div>
                     <div class="switch-bar">
                         <p>Tor</p>
@@ -298,6 +320,7 @@
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
+                        <label class="status" id="tor-status"></label>
                     </div>
                 </div>
 
@@ -312,7 +335,7 @@
 
             <div class="layer">
                 <div class="log rounded">
-                    <h3>Logs</h3>
+                    <h3>Requests</h3>
 
                 </div>
             </div>
@@ -320,6 +343,13 @@
             <div class="layer">
                 <div class="log rounded">
                     <h3>IP history</h3>
+
+                </div>
+            </div>
+
+            <div class="layer">
+                <div class="log rounded">
+                    <h3>Logs</h3>
 
                 </div>
             </div>

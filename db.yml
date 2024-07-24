@@ -1,3 +1,12 @@
 counters:
-    requests: 100
-    blocked: -99
+    requests: 0
+    blocked: 0
+
+status:
+    proxy: offline
+    ghost: offline
+    vpn: offline
+    tor: offline
+
+network:
+    ip: "not available"

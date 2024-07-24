@@ -56,12 +56,26 @@ def api_chart_requests():
 def api_chart_blocked():
     return str(choice(range(0, 500)))
 
-
 @app.route('/get_ip')
 def get_ip():
-    return "255.255.255.0"
-
+    return str(read_db()['network']['ip'])
 
 @app.route('/ip_checker.js')
 def ip_checker():
     return open_webfile('ip_checker.js')
+
+@app.route('/proxy_status')
+def proxy_status():
+    return str(read_db()['status']['proxy'])
+
+@app.route('/ghost_status')
+def ghost_status():
+    return str(read_db()['status']['ghost'])
+
+@app.route('/vpn_status')
+def vpn_status():
+    return str(read_db()['status']['vpn'])
+
+@app.route('/tor_status')
+def tor_status():
+    return str(read_db()['status']['tor'])
